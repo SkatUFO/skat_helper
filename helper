@@ -1,0 +1,36 @@
+Equalaizer for Ubuntu
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install pulseaudio-equalizer
+------------------------------------------------------------------------------
+Mysql-workbench install
+sudo apt-get install mysql-workbench
+------------------------------------------------------------------------------
+MYSQL 
+Посмотреть имеющиеся базы данных
+mysql> show databases;
+
+Создать базу данных с именем new_db
+mysql> create database new_db default character set utf8;
+
+Переключение между базами (выбор конкретной базы)
+mysql> use new_db;
+
+Посмотреть имеющиеся таблицы в базе данных
+mysql> show tables;
+
+Посмотреть структуру таблицы zipcodes
+mysql> describe zipcodes;
+
+Удалить базу new_db
+mysql> drop database new_db;
+
+Заливаем дамп базы данных из old_db.sql в базу my_db
+mysql -hlocalhost -uusername -ppassword my_db < old_db.sql
+Делаем дамп базы данных
+mysqldump -hlocalhost -uusername -ppassword my_db > old_db.sql
+-----------------------------------------------------------------------------
+sql_mode=only_full_group_by
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+-----------------------------------------------------------------------------
+
