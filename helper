@@ -33,3 +33,18 @@ mysqldump -hlocalhost -uusername -ppassword my_db > old_db.sql
 sql_mode=only_full_group_by
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 -----------------------------------------------------------------------------
+Git don't track permoissions
+git config core.fileMode false
+-----------------------------------------------------------------------------
+Копируем файл «file.txt» с локального компьютера на удаленный сервер.
+$ scp file.txt user@remote.host:/some/remote/directory
+-----------------------------------------------------------------------------
+Download or send file via ssh
+To copy a file from B to A while logged into B:
+
+scp /path/to/file username@a:/path/to/destination
+To copy a file from B to A while logged into A:
+
+scp username@b:/path/to/file /path/to/destination
+-----------------------------------------------------------------------------
+
