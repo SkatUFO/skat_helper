@@ -47,4 +47,85 @@ To copy a file from B to A while logged into A:
 
 scp username@b:/path/to/file /path/to/destination
 -----------------------------------------------------------------------------
+When problems with mount windows disk
+sudo ntfsfix /dev/sda3
+-----------------------------------------------------------------------------
+Class 'MongoDB\Driver\Query' not found at php 5.6
+sudo apt-get install php-mongodb
+-----------------------------------------------------------------------------
+-----------> Git <-------------
+git config core.fileMode false - игнорирование изменение прав файлов в гите
+git remote add origin https://bitbucket.org/web-develop/blog_swisslux
+git log -S'handlebars'  - поиск среди комитов
+git rm --cached testovital/wp-config.php - удаление из кеша
+git update-index --assume-unchanged .htaccess - не отслеживать файл локально
+git update-index --no-assume-unchanged FILENAME - вернуть отслеживание файла локально
+git ls-files -v | grep '^[[:lower:]]' - посмотреть неотслеживаемые файлы
+удалить файл из истории и отслеживания
+http://loco.ru/materials/427-git-udalenie-faila-ili-papki-iz-istorii
+git checkout -b sitemap - создание новой ветки
+
+-----------> Git <-------------
+=============================================================================
+alias sudo='sudo ' - задание алиаса
+unalias sudo - удаление алиаса
+=============================================================================
+---------> DB <-----------
+mysql -u root -p'Q%vS5J1pS@!p'  - вкл MySql
+use mrs; - выбрать базу mrs
+SHOW DATABASES; - показать все базы
+select * from settings; - показать таблицу settings
+drop table top_migration; - удалить таблицу
+mysqldump -u root -pBCAtHAP7D8 swisslux > 03.06.16_swisslux.sql
+mysql -u username -p database_name < file.sql
+update products SET description = REPLACE(description, '\r\n', '') where description like '%\r\n%';  - найти и заменить в таблице
+CREATE DATABASE `ubersonic` CHARACTER SET utf8 COLLATE utf8_general_ci;
+mysql -u root -p'Q%vS5J1pS@!p' ubersonic < 000_database_structure.sql
+show create table NAME_TABLE;
+mysql -u u_servicemz -p'lXkVk4EG' service_m < sm_new_order_2.sql
+CREATE DATABASE se_prod CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA="seotopwo";
+посмотреть колейшн во всей базе
+
+SELECT TABLE_NAME, TABLE_COLLATION FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA="seotopwo" AND TABLE_TYPE="BASE TABLE" AND TABLE_COLLATION != 'utf8_unicode_ci' AND TABLE_COLLATION != 'utf8_general_ci';
+посмотреть определенные колейшены
+
+SELECT CONCAT("ALTER TABLE ",TABLE_SCHEMA,".",TABLE_NAME," CHARACTER SET utf8 COLLATE utf8_general_ci;") AS alter_sql FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA="se_prod" AND TABLE_TYPE="BASE TABLE" AND TABLE_COLLATION != 'utf8_unicode_ci' AND TABLE_COLLATION != 'utf8_general_ci';
+изменить колешейны
+
+взять последние данные по дате
+SELECT * FROM (select * from top_projects_child_yandex_serp_history where project_id = 9207 order by date desc ) a group by word_id;
+
+----->
+Найти все дубли
+select  domain_id, brand_id, category_id,
+         count(*)
+from     s_categories_brands
+group by domain_id, brand_id, category_id
+having   count(*) > 1
+<----
+
+---------> DB <-----------
+
+------>Mongo<-------
+mongoexport --db seo --collection top_adversting --out mongo_export_adver.json
+
+------>Mongo<-------
+если монго не хватает места
+1) mkdir data
+
+2) cd data
+
+3) sudo mongod -dbpath .
+------>Mongo<-------
+mongo
+use admin
+db.createUser({ user:"privatdigital_user", pwd: "$9RzGtA%wB@4", roles: [{role: "userAdminAnyDatabase", db: "admin"}] })
+создание юзера в Mongo
+
+root/.bash_history - история команд
+php yii ga/parse-visits    - парсинг в косоле за день
+php yii ga/parse-month    - парсинг в косоле за месяц
+=============================================================================
 
