@@ -128,4 +128,10 @@ root/.bash_history - история команд
 php yii ga/parse-visits    - парсинг в косоле за день
 php yii ga/parse-month    - парсинг в косоле за месяц
 =============================================================================
+set desktop img drom console
+gsettings set org.gnome.desktop.background picture-uri "file:///home/alexense/kisa.jpg"
 
+=============================================================================
+Online license for PHPStorm
+http://idea.iteblog.com/key.php
+=============================================================================
